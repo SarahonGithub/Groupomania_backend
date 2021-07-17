@@ -16,8 +16,6 @@ app.use((req, res, next) => {
   next();
 }); 
 
-app.use(express.static('frontend'))
-
 //Transformer le corps de la requête en json utilisable
 app.use(bodyParser.json());
 

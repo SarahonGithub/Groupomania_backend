@@ -1,24 +1,20 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Articles', {
-      id: {
+    await queryInterface.createTable('articles', {
+      idarticle: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_users: {
+      id_user: {
         allowNull: false,
         type: Sequelize.BIGINT,
         references: {
-          model: 'Users',
+          model: 'users',
           key: 'id'
         }
-      },
-      date: {
-        allowNull: false,
-        type: Sequelize.DATE
       },
       title: {
         allowNull: false,
@@ -37,17 +33,17 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: 0
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Articles');
+    await queryInterface.dropTable('articles');
   }
 };
